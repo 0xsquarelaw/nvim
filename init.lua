@@ -23,8 +23,6 @@ opt.autoindent = true -- copy indent from current line when starting a new line
 opt.signcolumn = "yes" -- always show the sign column
 opt.clipboard = "unnamedplus" -- use system clipboard
 opt.cursorline = true -- highlight the current line
-opt.cursorcolumn = true -- highlight the current column
-g.codeium_no_map_tab = true -- disable tab mapping in codeium
 opt.undodir = vim.fn.stdpath("cache") .. "/undo" -- persistent undo in directory
 opt.undofile = true -- persistent undo in file
 opt.backup = false -- do not create backup files
@@ -193,13 +191,7 @@ lazy.setup({
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" }, -- jump to character
     },
 	},
-  {
-  'Exafunction/codeium.vim', -- codeium AI code completion
-  event = 'BufEnter',
-  config = function ()
-  key('i', '<M-Tab>', function () return vim.fn['codeium#Accept']() end, { expr = true })
-  end
-},
+
 
 { "moll/vim-bbye" }, -- close buffer
 { "nvim-lua/plenary.nvim" }, -- dependency for better sorting performance
